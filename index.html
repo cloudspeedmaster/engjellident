@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-translate="pageTitle">Klinika Ortodontike Engjelli Dent</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        html { scroll-behavior: smooth; }
+        body { background-color: #f8fafc; overflow-x: hidden; }
+        .floating { animation: floating 3s ease-in-out infinite; }
+        .floating-delay-1 { animation-delay: 0.5s; }
+        @keyframes floating { 0% { transform: translateY(0px); } 50% { transform: translateY(-15px); } 100% { transform: translateY(0px); } }
+        
+        /* Before & After Slider CSS */
+        .before-after-container { position: relative; width: 100%; overflow: hidden; }
+        .before-image-wrapper { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+        .before-image-wrapper img { width: 100%; height: 100%; object-fit: cover; }
+        .after-image-wrapper { position: absolute; top: 0; left: 0; width: 100%; height: 100%; clip-path: inset(0 0 0 50%); }
+        .after-image-wrapper img { width: 100%; height: 100%; object-fit: cover; }
+        .before-after-slider { position: absolute; top: 0; bottom: 0; left: 50%; width: 4px; background: #3b82f6; cursor: ew-resize; z-index: 10; transform: translateX(-50%); }
+        .before-after-slider::before { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 40px; height: 40px; background: #3b82f6; border-radius: 50%; border: 2px solid white; box-shadow: 0 0 10px rgba(0,0,0,0.3); }
+        .before-after-slider::after { content: '⟷'; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; font-size: 20px; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="fixed w-full bg-white shadow-md z-40 transition-all duration-300" id="navbar">
+        <div class="container mx-auto px-4 py-2 flex justify-between items-center">
+            <div class="flex items-center">
+                <a href="#hero">
+                    <img src="https://i.imgur.com/eNp18cD.png" alt="Engjelli Dent Logo" class="h-16 w-auto">
+                </a>
+            </div>
+            <div class="hidden md:flex space-x-8">
+                <a href="#hero" class="text-gray-600 hover:text-blue-600 transition-colors" data-translate="navHome">Kryefaqja</a>
+                <a href="#about" class="text-gray-600 hover:text-blue-600 transition-colors" data-translate="navAbout">Rreth Nesh</a>
+                <a href="#services" class="text-gray-600 hover:text-blue-600 transition-colors" data-translate="navServices">Shërbimet</a>
+                <a href="#before-after" class="text-gray-600 hover:text-blue-600 transition-colors" data-translate="navBeforeAfter">Para dhe Pas</a>
+                <a href="#testimonials" class="text-gray-600 hover:text-blue-600 transition-colors" data-translate="navTestimonials">Dëshmitë</a>
+                <a href="#contact" class="text-gray-600 hover:text-blue-600 transition-colors" data-translate="navContact">Kontakti</a>
+            </div>
+            <div class="md:hidden"><button id="menu-toggle" class="focus:outline-none"><svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg></button></div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-md">
+            <div class="container mx-auto px-4 py-3 flex flex-col space-y-3">
+                <a href="#hero" class="text-gray-600 hover:text-blue-600 transition-colors" data-translate="navHome">Kryefaqja</a>
+                <a href="#about" class="text-gray-600 hover:text-blue-600 transition-colors" data-translate="navAbout">Rreth Nesh</a>
+                <a href="#services" class="text-gray-600 hover:text-blue-600 transition-colors" data-translate="navServices">Shërbimet</a>
+                <a href="#before-after" class="text-gray-600 hover:text-blue-600 transition-colors" data-translate="navBeforeAfter">Para dhe Pas</a>
+                <a href="#testimonials" class="text-gray-600 hover:text-blue-600 transition-colors" data-translate="navTestimonials">Dëshmitë</a>
+                <a href="#contact" class="text-gray-600 hover:text-blue-600 transition-colors" data-translate="navContact">Kontakti</a>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section id="hero" class="relative min-h-screen flex items-center bg-gradient-to-br from-blue-50 to-blue-100 overflow-hidden pt-24">
+        <div class="container mx-auto px-4 py-32 md:py-0 z-20">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-800 mb-4" data-translate="heroTitle">Engjelli Dent</h1>
+                    <p class="text-2xl text-blue-600 mb-8 font-semibold" data-translate="heroMotto">Buzëqeshja Juaj, Prioriteti Ynë</p>
+                    <p class="text-lg text-gray-600 mb-8" data-translate="heroDescription">Klinika jonë ortodontike ofron shërbime të specializuara për drejtimin e dhëmbëve dhe nofullës. Ne përdorim teknologjinë më të fundit për të siguruar një buzëqeshje perfekte dhe funksionale.</p>
+                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                        <a href="#contact" class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg transition-colors duration-300 text-center" data-translate="heroBtnAppointment">Cakto një Takim</a>
+                        <a href="#services" class="bg-white hover:bg-gray-100 text-blue-600 font-medium py-3 px-6 rounded-lg border border-blue-600 transition-colors duration-300 text-center" data-translate="heroBtnServices">Shërbimet Tona</a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 relative"><img src="https://i.imgur.com/gWU9Jzj.png" alt="Buzëqeshje e bukur ortodontike" class="rounded-lg shadow-2xl"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us / Team Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4" data-translate="aboutTitle">Njoftohuni me Ekipin Tonë</h2>
+                <div class="w-24 h-1 bg-blue-600 mx-auto mb-6"></div>
+                <p class="text-gray-600 max-w-3xl mx-auto" data-translate="aboutDescription">Pasioni ynë për ortodonci vjen nga përkushtimi për të krijuar buzëqeshje të bukura dhe të shëndetshme që zgjasin një jetë.</p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h3 class="text-3xl font-bold text-gray-800" data-translate="doctorName">Dr. Engjell Uka</h3>
+                    <p class="text-xl text-blue-600 font-semibold mb-4" data-translate="doctorSpecialty">Specialist i Ortopedisë së Nofullës</p>
+                    <p class="text-gray-600 mb-4" data-translate="aboutText1">Dr. Engjell Uka udhëheq klinikën tonë me një përkushtim të palëkundur ndaj përsosmërisë në ortodonci. Me një karrierë të pasur dhe trajnime të vazhdueshme në teknikat më të fundit, ai siguron që çdo pacient të marrë një plan trajtimi të personalizuar dhe efektiv.</p>
+                    <p class="text-gray-600" data-translate="aboutText2">Filozofia e tij është e thjeshtë: kombinimi i artit dhe shkencës për të arritur jo vetëm dhëmbë të drejtë, por edhe një harmoni të plotë të fytyrës dhe një shëndet oral afatgjatë. Ai është i përkushtuar për t'i bërë pacientët e tij të ndihen të rehatshëm dhe të sigurt gjatë gjithë procesit të trajtimit.</p>
+                </div>
+                <div class="flex justify-center">
+                    <img src="https://i.imgur.com/BwELJUV.png" alt="Dr. Engjell Uka" class="rounded-lg shadow-2xl max-h-96 w-auto transition-transform hover:scale-105 duration-300">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-blue-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4" data-translate="servicesTitle">Shërbimet Tona Ortodontike</h2>
+                <div class="w-24 h-1 bg-blue-600 mx-auto mb-6"></div>
+                <p class="text-gray-600 max-w-2xl mx-auto" data-translate="servicesDescription">Ne ofrojmë një gamë të plotë shërbimesh ortodontike për fëmijë, adoleshentë dhe të rritur.</p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="text-center bg-white rounded-lg shadow-lg p-6 flex flex-col items-center transition-all duration-300 hover:transform hover:-translate-y-2 hover:shadow-2xl"><div class="w-20 h-20 mb-4 flex items-center justify-center"><img src="https://i.imgur.com/5SABPUF.png" alt="Aparate Ortodontike Icon" class="h-full object-contain"></div><h3 class="text-xl font-bold text-gray-800 mb-2" data-translate="service1Title">Aparatet Ortodontike</h3><p class="text-gray-600" data-translate="service1Desc">Metalike ose Qeramike</p></div>
+                <div class="text-center bg-white rounded-lg shadow-lg p-6 flex flex-col items-center transition-all duration-300 hover:transform hover:-translate-y-2 hover:shadow-2xl"><div class="w-20 h-20 mb-4 flex items-center justify-center"><img src="https://i.imgur.com/ID6L1zC.png" alt="Invisalign Icon" class="h-full object-contain"></div><h3 class="text-xl font-bold text-gray-800 mb-2" data-translate="service2Title">Invisalign</h3><p class="text-gray-600" data-translate="service2Desc">Drejtim i padukshëm i dhëmbëve</p></div>
+                <div class="text-center bg-white rounded-lg shadow-lg p-6 flex flex-col items-center transition-all duration-300 hover:transform hover:-translate-y-2 hover:shadow-2xl"><div class="w-20 h-20 mb-4 flex items-center justify-center"><img src="https://i.imgur.com/FlYaVnl.png" alt="Retainer Icon" class="h-full object-contain"></div><h3 class="text-xl font-bold text-gray-800 mb-2" data-translate="service3Title">Retainer</h3><p class="text-gray-600" data-translate="service3Desc">Mbajtja e rezultatit tuaj perfekt</p></div>
+                <div class="text-center bg-white rounded-lg shadow-lg p-6 flex flex-col items-center transition-all duration-300 hover:transform hover:-translate-y-2 hover:shadow-2xl"><div class="w-20 h-20 mb-4 flex items-center justify-center"><img src="https://i.imgur.com/gp58vb6.png" alt="Zgjeruesit e Qiellzës Icon" class="h-full object-contain"></div><h3 class="text-xl font-bold text-gray-800 mb-2" data-translate="service4Title">Zgjeruesit e Qiellzës</h3><p class="text-gray-600" data-translate="service4Desc">Korrigjimi i kafshimit</p></div>
+                <div class="text-center bg-white rounded-lg shadow-lg p-6 flex flex-col items-center transition-all duration-300 hover:transform hover:-translate-y-2 hover:shadow-2xl"><div class="w-20 h-20 mb-4 flex items-center justify-center"><img src="https://i.imgur.com/k4eUazq.png" alt="Mbajtësit e Hapësirës Icon" class="h-full object-contain"></div><h3 class="text-xl font-bold text-gray-800 mb-2" data-translate="service5Title">Mbajtësit e Hapësirës</h3><p class="text-gray-600" data-translate="service5Desc">Ruajtja e hapësirës për dhëmbët e përhershëm</p></div>
+                <div class="text-center bg-white rounded-lg shadow-lg p-6 flex flex-col items-center transition-all duration-300 hover:transform hover:-translate-y-2 hover:shadow-2xl"><div class="w-20 h-20 mb-4 flex items-center justify-center"><img src="https://i.imgur.com/jKkbKql.png" alt="Trajtimi i Nofullës Icon" class="h-full object-contain"></div><h3 class="text-xl font-bold text-gray-800 mb-2" data-translate="service6Title">Trajtimi i Drejtimit të Nofullës</h3><p class="text-gray-600" data-translate="service6Desc">Përmirësimi i funksionit dhe estetikës</p></div>
+                <div class="text-center bg-white rounded-lg shadow-lg p-6 flex flex-col items-center transition-all duration-300 hover:transform hover:-translate-y-2 hover:shadow-2xl"><div class="w-20 h-20 mb-4 flex items-center justify-center"><img src="https://i.imgur.com/5SABPUF.png" alt="Ortodoncia Kirurgjikale Icon" class="h-full object-contain"></div><h3 class="text-xl font-bold text-gray-800 mb-2" data-translate="service7Title">Ortodoncia Kirurgjikale</h3><p class="text-gray-600" data-translate="service7Desc">Për rastet më komplekse</p></div>
+                <div class="text-center bg-white rounded-lg shadow-lg p-6 flex flex-col items-center transition-all duration-300 hover:transform hover:-translate-y-2 hover:shadow-2xl"><div class="w-20 h-20 mb-4 flex items-center justify-center"><img src="https://i.imgur.com/ID6L1zC.png" alt="TMJ Icon" class="h-full object-contain"></div><h3 class="text-xl font-bold text-gray-800 mb-2" data-translate="service8Title">Trajtimi i Nyjës së Nofullës (TMJ)</h3><p class="text-gray-600" data-translate="service8Desc">Lehtësim nga dhimbja dhe diskomforti</p></div>
+                <div class="text-center bg-white rounded-lg shadow-lg p-6 flex flex-col items-center transition-all duration-300 hover:transform hover:-translate-y-2 hover:shadow-2xl"><div class="w-20 h-20 mb-4 flex items-center justify-center"><img src="https://i.imgur.com/gp58vb6.png" alt="Ortodoncia Kozmetike Icon" class="h-full object-contain"></div><h3 class="text-xl font-bold text-gray-800 mb-2" data-translate="service9Title">Ortodoncia Kozmetike</h3><p class="text-gray-600" data-translate="service9Desc">Përmirësoni buzëqeshjen tuaj</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Before and After Section -->
+    <section id="before-after" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16"><h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4" data-translate="beforeAfterTitle">Para dhe Pas</h2><div class="w-24 h-1 bg-blue-600 mx-auto mb-6"></div><p class="text-gray-600 max-w-2xl mx-auto" data-translate="beforeAfterDescription">Shikoni transformimet e mahnitshme të buzëqeshjeve që kemi realizuar për pacientët tanë.</p></div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <div class="before-after-container h-96 rounded-lg overflow-hidden shadow-lg bg-gray-200"><div class="before-image-wrapper"><img src="https://i.imgur.com/3oQT78g.jpeg" alt="Before teeth whitening"></div><div class="after-image-wrapper"><img src="https://i.imgur.com/rYPJ07n.jpeg" alt="After teeth whitening"></div><div class="before-after-slider" id="slider1"></div></div>
+                <div class="before-after-container h-96 rounded-lg overflow-hidden shadow-lg bg-gray-200"><div class="before-image-wrapper"><img src="https://i.imgur.com/0Iv1O2w.jpeg" alt="Before dental implants"></div><div class="after-image-wrapper"><img src="https://i.imgur.com/yWYgDIq.jpeg" alt="After dental implants"></div><div class="before-after-slider" id="slider2"></div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-20 bg-blue-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16"><h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4" data-translate="testimonialsTitle">Dëshmitë e Pacientëve</h2><div class="w-24 h-1 bg-blue-600 mx-auto mb-6"></div><p class="text-gray-600 max-w-2xl mx-auto" data-translate="testimonialsDescription">Dëgjoni çfarë thonë pacientët tanë për përvojën e tyre në klinikën tonë.</p></div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white rounded-lg shadow-lg p-8 transition-transform hover:scale-105 duration-300"><p class="text-gray-600 italic mb-4" data-translate="testimonial1Quote">"Nuk kam menduar kurrë se do të ndihesha kaq rehat me aparate! Ekipi tek Engjelli Dent është fantastik. Rezultatet janë më të mira se sa kam pritur!"</p><p class="font-bold text-right text-gray-800">- Arta Krasniqi</p></div>
+                <div class="bg-white rounded-lg shadow-lg p-8 transition-transform hover:scale-105 duration-300"><p class="text-gray-600 italic mb-4" data-translate="testimonial2Quote">"Procesi me Invisalign ishte shumë më i lehtë se sa mendoja. Jam shumë i lumtur me buzëqeshjen time të re. Faleminderit Dr. Engjell dhe ekipit të Engjelli Dent!"</p><p class="font-bold text-right text-gray-800">- Besnik Hoxha</p></div>
+                <div class="bg-white rounded-lg shadow-lg p-8 transition-transform hover:scale-105 duration-300"><p class="text-gray-600 italic mb-4" data-translate="testimonial3Quote">"Sjellja e djalit tim këtu ishte vendimi më i mirë. Stafi është i mrekullueshëm me fëmijët dhe i gjithë procesi ishte pa stres. Rekomandoj fuqishëm Engjelli Dent."</p><p class="font-bold text-right text-gray-800">- Vjosa Berisha</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16"><h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4" data-translate="contactTitle">Na Kontaktoni</h2><div class="w-24 h-1 bg-blue-600 mx-auto mb-6"></div><p class="text-gray-600 max-w-2xl mx-auto" data-translate="contactDescription">Jemi këtu për t'iu përgjigjur pyetjeve tuaja dhe për t'ju ndihmuar të caktoni një takim.</p></div>
+            <div class="flex flex-col md:flex-row-reverse gap-10">
+                <div class="md:w-1/2">
+                    <form class="bg-blue-50 rounded-lg shadow-lg p-8"><h3 class="text-2xl font-bold text-gray-800 mb-6" data-translate="formTitle">Na Dërgoni një Mesazh</h3><div class="mb-6"><label for="name" class="block text-gray-700 font-medium mb-2" data-translate="formName">Emri i Plotë</label><input type="text" id="name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600" data-translate-placeholder="formNamePlaceholder" placeholder="Emri juaj i plotë"></div><div class="mb-6"><label for="email" class="block text-gray-700 font-medium mb-2" data-translate="formEmail">Email</label><input type="email" id="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600" data-translate-placeholder="formEmailPlaceholder" placeholder="adresa@juaj.com"></div><div class="mb-6"><label for="phone" class="block text-gray-700 font-medium mb-2" data-translate="formPhone">Numri i Telefonit</label><input type="tel" id="phone" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600" data-translate-placeholder="formPhonePlaceholder" placeholder="+383 44 333 432"></div><div class="mb-6"><label for="message" class="block text-gray-700 font-medium mb-2" data-translate="formMessage">Mesazhi</label><textarea id="message" rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600" data-translate-placeholder="formMessagePlaceholder" placeholder="Shkruani mesazhin tuaj këtu..."></textarea></div><button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg transition-colors" data-translate="formButton">Dërgo Mesazhin</button></form>
+                </div>
+                <div class="md:w-1/2">
+                     <div class="bg-white rounded-lg p-8 h-full shadow-lg"><h3 class="text-2xl font-bold text-gray-800 mb-6" data-translate="contactInfoTitle">Informacioni i Kontaktit</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-start"><div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4 flex-shrink-0"><svg class="w-6 h-6 text-blue-600" fill="currentColor" viewBox="0 0 24 24"><path d="M12,2C8.13,2,5,5.13,5,9c0,5.25,7,13,7,13s7-7.75,7-13C19,5.13,15.87,2,12,2z M12,11.5c-1.38,0-2.5-1.12-2.5-2.5 s1.12-2.5,2.5-2.5s2.5,1.12,2.5,2.5S13.38,11.5,12,11.5z"></path></svg></div><div><h4 class="font-bold text-gray-800 mb-1" data-translate="addressTitle">Adresa</h4><p class="text-gray-600" data-translate="addressText">Qamil Hoxha 34/1 Prishtinë XK, Prishtine 10000</p></div></div>
+                            <div class="flex items-start"><div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4 flex-shrink-0"><svg class="w-6 h-6 text-blue-600" fill="currentColor" viewBox="0 0 24 24"><path d="M20,15.5C18.8,15.5,17.5,15.3,16.4,14.9C16.1,14.8,15.7,14.9,15.5,15.1L13.2,17.4C10.4,15.9,8,13.6,6.6,10.8L8.9,8.5C9.1,8.3,9.2,7.9,9.1,7.6C8.7,6.5,8.5,5.2,8.5,4C8.5,3.5,8,3,7.5,3H4C3.5,3,3,3.5,3,4C3,13.4,10.6,21,20,21C20.5,21,21,20.5,21,20V16.5C21,16,20.5,15.5,20,15.5Z"></path></svg></div><div><h4 class="font-bold text-gray-800 mb-1" data-translate="phoneTitle">Telefon</h4><p class="text-gray-600">+383 44 333 432</p></div></div>
+                            <div class="flex items-start"><div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4 flex-shrink-0"><svg class="w-6 h-6 text-blue-600" fill="currentColor" viewBox="0 0 24 24"><path d="M16.5,12A4.5,4.5 0 0 0 12,7.5A4.5,4.5 0 0 0 7.5,12A4.5,4.5 0 0 0 12,16.5A4.5,4.5 0 0 0 16.5,12M12,9A3,3 0 0 1 15,12A3,3 0 0 1 12,15A3,3 0 0 1 9,12A3,3 0 0 1 12,9M12,2A10,10 0 0 0 2,12A10,10 0 0 0 12,22A10,10 0 0 0 22,12A10,10 0 0 0 12,2M12,20A8,8 0 0 1 4,12A8,8 0 0 1 12,4A8,8 0 0 1 20,12A8,8 0 0 1 12,20Z" /></svg></div><div><h4 class="font-bold text-gray-800 mb-1" data-translate="viberTitle">Viber</h4><p class="text-gray-600">+383 49 480 749</p></div></div>
+                            <div class="flex items-start"><div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4 flex-shrink-0"><svg class="w-6 h-6 text-blue-600" fill="currentColor" viewBox="0 0 24 24"><path d="M6.62,10.79C8.06,13.62 10.38,15.94 13.21,17.38L15.41,15.18C15.69,14.9 16.08,14.82 16.43,14.93C17.55,15.3 18.75,15.5 20,15.5A1,1 0 0,1 21,16.5V20A1,1 0 0,1 20,21A17,17 0 0,1 3,4A1,1 0 0,1 4,3H7.5A1,1 0 0,1 8.5,4C8.5,5.25 8.7,6.45 9.07,7.57C9.18,7.92 9.1,8.31 8.82,8.59L6.62,10.79Z" /></svg></div><div><h4 class="font-bold text-gray-800 mb-1" data-translate="fixTitle">Fix</h4><p class="text-gray-600">038 735 765</p></div></div>
+                            <div class="flex items-start"><div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4 flex-shrink-0"><svg class="w-6 h-6 text-blue-600" fill="currentColor" viewBox="0 0 24 24"><path d="M12,2C6.48,2,2,6.48,2,12s4.48,10,10,10s10-4.48,10-10S17.52,2,12,2z M12,20c-4.41,0-8-3.59-8-8s3.59-8,8-8s8,3.59,8,8 S16.41,20,12,20z"></path><path d="M12.5,7H11v6l5.25,3.15l0.75-1.23l-4.5-2.67V7z"></path></svg></div><div><h4 class="font-bold text-gray-800 mb-1" data-translate="hoursTitle">Orari i Punës</h4><p class="text-gray-600" data-translate="hoursText">E Hënë - E Premte: 13:00 - 18:00<br>E Shtunë: 22:00 - 00:00<br>E Diel: 00:00 - 16:00</p></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section id="map" class="py-10 bg-blue-50">
+        <div class="container mx-auto px-4">
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2934.020556133178!2d21.161828376647047!3d42.66108811593902!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x13549f47b4dd1a5b%3A0x26dc4884b00a619c!2sEngjelli%20Dent!5e0!3m2!1sen!2s!4v1717256191959!5m2!1sen!2s" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-10"><div class="container mx-auto px-4 text-center"><p data-translate="footerRights">© 2024 Engjelli Dent. Të gjitha të drejtat e rezervuara.</p></div></footer>
+
+    <!-- Floating Toggles -->
+    <div id="language-switcher" class="fixed bottom-5 left-5 z-50"><div id="language-options" class="hidden absolute bottom-full mb-2"><button id="lang-option-btn" class="flex items-center space-x-2 bg-white text-gray-800 font-bold py-2 px-4 rounded-lg shadow-lg transition-transform hover:scale-105"></button></div><button id="language-toggle-btn" class="flex items-center space-x-2 bg-white text-gray-800 font-bold py-2 px-4 rounded-lg shadow-lg transition-transform hover:scale-105"></button></div>
+    <div class="fixed bottom-5 right-5 z-50 flex flex-col-reverse items-center space-y-2 space-y-reverse">
+        <div id="social-options" class="hidden flex flex-col items-center space-y-2 mb-2"><a href="https://wa.me/38349480749" target="_blank" class="bg-green-500 text-white rounded-full p-3 shadow-lg hover:bg-green-600 transition-transform hover:scale-110"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M16.75 13.96c.25.13.42.2.46.28a.48.48 0 01.04.3c-.12.48-.68.9-1.12.96-.28.04-.48.03-.68-.02s-.58-.2-1.03-.38c-1.1-.48-2.2-1.34-2.94-2.4a5.33 5.33 0 01-1-1.3c-.2-.35-.38-.7-.38-1.03a1.4 1.4 0 01.48-1.02c.16-.16.35-.2.48-.2a.6.6 0 01.43.28l.2.28.6 1.35.3 1.3c.02.04.04.1.04.16a.4.4 0 010 .2c-.02.08-.04.13-.08.18-.08.1-.18.2-.3.3a.62.62 0 01-.22.1c-.08.04-.15.1-.15.2a1.35 1.35 0 00.5 1.12c.5.53 1.15.93 1.83 1.1a1.2 1.2 0 00.35.03c.1-.03.25-.13.3-.25.04-.1.04-.2.04-.25l.02-.13c0-.02 0-.04-.02-.06a.7.7 0 00-.08-.13.3.3 0 01-.06-.2.43.43 0 01.13-.3c.1-.08.2-.13.25-.13h.1a.4.4 0 01.28.13c.1.08.18.18.25.28.1.13.18.25.25.35.08.13.15.23.18.3.02.03.04.06.04.08a.27.27 0 01.02.13c0 .06-.02.1-.04.16s-.04.1-.06.13a.96.96 0 01-.15.22zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10c5.52 0 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"/></svg></a><a href="https://instagram.com" target="_blank" class="bg-gradient-to-br from-purple-500 via-pink-500 to-yellow-500 text-white rounded-full p-3 shadow-lg transition-transform hover:scale-110"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.85s-.011 3.584-.069 4.85c-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07s-3.584-.012-4.85-.07c-3.252-.148-4.771-1.691-4.919-4.919-.058-1.265-.069-1.645-.069-4.85s.011-3.584.069-4.85c.149-3.225 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.85-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948s.014 3.667.072 4.947c.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072s3.667-.014 4.947-.072c4.358-.2 6.78-2.618 6.98-6.98.059-1.281.073-1.689.073-4.948s-.014-3.667-.072-4.947c-.2-4.358-2.618-6.78-6.98-6.98-1.281-.059-1.689-.073-4.948-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4s1.791-4 4-4 4 1.79 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44 1.441-.645 1.441-1.44c0-.795-.645-1.44-1.441-1.44z"/></svg></a><a href="https://facebook.com" target="_blank" class="bg-blue-800 text-white rounded-full p-3 shadow-lg hover:bg-blue-900 transition-transform hover:scale-110"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg></a></div>
+        <button id="social-toggle" class="bg-blue-600 text-white rounded-full p-4 shadow-lg hover:bg-blue-700 transition-transform hover:scale-110"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12s-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6.002l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.368a3 3 0 105.367 2.684 3 3 0 00-5.367-2.684z"></path></svg></button>
+    </div>
+
+    <script>
+        const translations = {
+            sq: { pageTitle: "Klinika Ortodontike Engjelli Dent", navHome: "Kryefaqja", navAbout: "Rreth Nesh", navServices: "Shërbimet", navBeforeAfter: "Para dhe Pas", navTestimonials: "Dëshmitë", navContact: "Kontakti", heroTitle: "Engjelli Dent", heroMotto: "Buzëqeshja Juaj, Prioriteti Ynë", heroDescription: "Klinika jonë ortodontike ofron shërbime të specializuara për drejtimin e dhëmbëve dhe nofullës. Ne përdorim teknologjinë më të fundit për të siguruar një buzëqeshje perfekte dhe funksionale.", heroBtnAppointment: "Cakto një Takim", heroBtnServices: "Shërbimet Tona", aboutTitle: "Njoftohuni me Ekipin Tonë", aboutDescription: "Pasioni ynë për ortodonci vjen nga përkushtimi për të krijuar buzëqeshje të bukura dhe të shëndetshme që zgjasin një jetë.", aboutSubheading: "Njoftohuni me Ortodontin Tonë", doctorName: "Dr. Engjell Uka", doctorSpecialty: "Specialist i Ortopedisë së Nofullës", aboutText1: "Dr. Engjell Uka udhëheq klinikën tonë me një përkushtim të palëkundur ndaj përsosmërisë në ortodonci. Me një karrierë të pasur dhe trajnime të vazhdueshme në teknikat më të fundit, ai siguron që çdo pacient të marrë një plan trajtimi të personalizuar dhe efektiv.", aboutText2: "Filozofia e tij është e thjeshtë: kombinimi i artit dhe shkencës për të arritur jo vetëm dhëmbë të drejtë, por edhe një harmoni të plotë të fytyrës dhe një shëndet oral afatgjatë. Ai është i përkushtuar për t'i bërë pacientët e tij të ndihen të rehatshëm dhe të sigurt gjatë gjithë procesit të trajtimit.", servicesTitle: "Shërbimet Tona Ortodontike", servicesDescription: "Ne ofrojmë një gamë të plotë shërbimesh ortodontike për fëmijë, adoleshentë dhe të rritur.", service1Title: "Aparatet Ortodontike", service1Desc: "Metalike ose Qeramike", service2Title: "Invisalign", service2Desc: "Drejtim i padukshëm i dhëmbëve", service3Title: "Retainer", service3Desc: "Mbajtja e rezultatit tuaj perfekt", service4Title: "Zgjeruesit e Qiellzës", service4Desc: "Korrigjimi i kafshimit", service5Title: "Mbajtësit e Hapësirës", service5Desc: "Ruajtja e hapësirës për dhëmbët e përhershëm", service6Title: "Trajtimi i Drejtimit të Nofullës", service6Desc: "Përmirësimi i funksionit dhe estetikës", service7Title: "Ortodoncia Kirurgjikale", service7Desc: "Për rastet më komplekse", service8Title: "Trajtimi i Nyjës së Nofullës (TMJ)", service8Desc: "Lehtësim nga dhimbja dhe diskomforti", service9Title: "Ortodoncia Kozmetike", service9Desc: "Përmirësoni buzëqeshjen tuaj", beforeAfterTitle: "Para dhe Pas", beforeAfterDescription: "Shikoni transformimet e mahnitshme të buzëqeshjeve që kemi realizuar për pacientët tanë.", testimonialsTitle: "Dëshmitë e Pacientëve", testimonialsDescription: "Dëgjoni çfarë thonë pacientët tanë për përvojën e tyre në klinikën tonë.", testimonial1Quote: `"Nuk kam menduar kurrë se do të ndihesha kaq rehat me aparate! Ekipi tek Engjelli Dent është fantastik. Rezultatet janë më të mira se sa kam pritur!"`, testimonial2Quote: `"Procesi me Invisalign ishte shumë më i lehtë se sa mendoja. Jam shumë i lumtur me buzëqeshjen time të re. Faleminderit Dr. Engjell dhe ekipit të Engjelli Dent!"`, testimonial3Quote: `"Sjellja e djalit tim këtu ishte vendimi më i mirë. Stafi është i mrekullueshëm me fëmijët dhe i gjithë procesi ishte pa stres. Rekomandoj fuqishëm Engjelli Dent."`, contactTitle: "Na Kontaktoni", contactDescription: "Jemi këtu për t'iu përgjigjur pyetjeve tuaja dhe për t'ju ndihmuar të caktoni një takim.", formTitle: "Na Dërgoni një Mesazh", formName: "Emri i Plotë", formNamePlaceholder: "Emri juaj i plotë", formEmail: "Email", formEmailPlaceholder: "adresa@juaj.com", formPhone: "Numri i Telefonit", formPhonePlaceholder: "+383 44 333 432", formMessage: "Mesazhi", formMessagePlaceholder: "Shkruani mesazhin tuaj këtu...", formButton: "Dërgo Mesazhin", contactInfoTitle: "Informacioni i Kontaktit", addressTitle: "Adresa", addressText: "Qamil Hoxha 34/1 Prishtinë XK, Prishtine 10000", phoneTitle: "Telefon", viberTitle: "Viber", fixTitle: "Fix", hoursTitle: "Orari i Punës", hoursText: "E Hënë - E Premte: 13:00 - 18:00<br>E Shtunë: 22:00 - 00:00<br>E Diel: 00:00 - 16:00", footerRights: "© 2024 Engjelli Dent. Të gjitha të drejtat e rezervuara." },
+            en: { pageTitle: "Engjelli Dent Orthodontic Clinic", navHome: "Home", navAbout: "About Us", navServices: "Services", navBeforeAfter: "Before & After", navTestimonials: "Testimonials", navContact: "Contact", heroTitle: "Engjelli Dent", heroMotto: "Your Smile, Our Priority", heroDescription: "Our orthodontic clinic offers specialized services for aligning teeth and jaws. We use the latest technology to ensure a perfect and functional smile.", heroBtnAppointment: "Book an Appointment", heroBtnServices: "Our Services", aboutTitle: "Meet Our Team", aboutDescription: "Our passion for orthodontics comes from a commitment to creating beautiful, healthy smiles that last a lifetime.", aboutSubheading: "Meet Our Orthodontist", doctorName: "Dr. Engjell Uka", doctorSpecialty: "Specialist of Jaw Orthopedics", aboutText1: "Dr. Engjell Uka leads our clinic with an unwavering commitment to excellence in orthodontics. With a rich career and continuous training in the latest techniques, he ensures that every patient receives a personalized and effective treatment plan.", aboutText2: "His philosophy is simple: combining art and science to achieve not only straight teeth but also complete facial harmony and long-term oral health. He is dedicated to making his patients feel comfortable and confident throughout the entire treatment process.", servicesTitle: "Our Orthodontic Services", servicesDescription: "We offer a full range of orthodontic services for children, adolescents, and adults.", service1Title: "Orthodontic Braces", service1Desc: "Metal or Ceramic", service2Title: "Invisalign", service2Desc: "Invisible teeth straightening", service3Title: "Retainers", service3Desc: "Maintaining your perfect result", service4Title: "Palatal Expanders", service4Desc: "Correcting the bite", service5Title: "Space Maintainers", service5Desc: "Saving space for permanent teeth", service6Title: "Jaw Alignment Treatment", service6Desc: "Improving function and aesthetics", service7Title: "Surgical Orthodontics", service7Desc: "For the most complex cases", service8Title: "TMJ Treatment", service8Desc: "Relief from pain and discomfort", service9Title: "Cosmetic Orthodontics", service9Desc: "Enhance your smile", beforeAfterTitle: "Before and After", beforeAfterDescription: "See the amazing smile transformations we have achieved for our patients.", testimonialsTitle: "Patient Testimonials", testimonialsDescription: "Hear what our patients have to say about their experience at our clinic.", testimonial1Quote: `"I never thought I would feel so comfortable with braces! The team at Engjelli Dent is fantastic. The results are better than I ever expected!"`, testimonial2Quote: `"The Invisalign process was much easier than I thought. I am so happy with my new smile. Thank you Dr. Engjell and the Engjelli Dent team!"`, testimonial3Quote: `"Bringing my son here was the best decision. The staff is wonderful with children and the whole process was stress-free. I highly recommend Engjelli Dent."`, contactTitle: "Contact Us", contactDescription: "We are here to answer your questions and help you schedule an appointment.", formTitle: "Send Us a Message", formName: "Full Name", formNamePlaceholder: "Your full name", formEmail: "Email", formEmailPlaceholder: "your@email.com", formPhone: "Phone Number", formPhonePlaceholder: "+383 44 333 432", formMessage: "Message", formMessagePlaceholder: "Write your message here...", formButton: "Send Message", contactInfoTitle: "Contact Information", addressTitle: "Address", addressText: "Qamil Hoxha 34/1 Prishtinë XK, Prishtine 10000", phoneTitle: "Phone", viberTitle: "Viber", fixTitle: "Landline", hoursTitle: "Working Hours", hoursText: "Monday - Friday: 1 PM - 6 PM<br>Saturday: 10 PM - 12 AM<br>Sunday: 12 AM - 4 PM", footerRights: "© 2024 Engjelli Dent. All rights reserved." }
+        };
+        
+        const albanianFlagSVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" class="w-5 h-5 rounded-sm"><rect fill="#E41E20" height="600" width="900"/><g transform="translate(450 300) scale(1.4)"><g transform="translate(0 40)" fill="#000"><path d="M-105-25l41 12-16-39 32 32-39-16 12 41L-105-25z"/><path d="M105-25l-41 12 16-39-32 32 39-16-12 41L105-25z"/><path d="M-125-105c-5 18-21 52-25 60-4 8 13 15 13 15s-10-18-5-30c5-12 17-25 17-25z"/><path d="M125-105c5 18 21 52 25 60 4 8-13 15-13 15s10-18 5-30c-5-12-17-25-17-25z"/><g transform="scale(1 -1)"><path d="M-125-105c-5 18-21 52-25 60-4 8 13 15 13 15s-10-18-5-30c5-12 17-25 17-25z"/><path d="M125-105c5 18 21 52 25 60 4 8-13 15-13 15s10-18 5-30c-5-12-17-25-17-25z"/></g></g></g></svg>`;
+        const englishFlagSVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30" class="w-5 h-5 rounded-sm"><path fill="#012169" d="M0 0h60v30H0z"/><path fill="#FFF" d="M0 0l60 30m0-30L0 30"/><path fill="none" stroke="#FFF" stroke-width="6" d="M0 0l60 30m0-30L0 30"/><path fill="none" stroke="#C8102E" stroke-width="2" d="M0 0l60 30m0-30L0 30"/><path fill="none" stroke="#FFF" stroke-width="10" d="M30 0v30M0 15h60"/><path fill="none" stroke="#C8102E" stroke-width="6" d="M30 0v30M0 15h60"/></svg>`;
+        
+        function changeLanguage(lang) {
+            document.documentElement.lang = lang;
+            const langData = translations[lang];
+            const langToggleBtn = document.getElementById('language-toggle-btn');
+            const langOptionBtn = document.getElementById('lang-option-btn');
+
+            document.querySelectorAll('[data-translate]').forEach(el => { const key = el.dataset.translate; if (langData[key]) el.innerHTML = langData[key]; });
+            document.querySelectorAll('[data-translate-placeholder]').forEach(el => { const key = el.dataset.translatePlaceholder; if (langData[key]) el.placeholder = langData[key]; });
+
+            if (lang === 'sq') {
+                langToggleBtn.innerHTML = `${albanianFlagSVG}<span class="font-bold">AL</span>`;
+                langOptionBtn.innerHTML = `${englishFlagSVG}<span class="font-bold">EN</span>`;
+                langOptionBtn.onclick = () => changeLanguage('en');
+            } else {
+                langToggleBtn.innerHTML = `${englishFlagSVG}<span class="font-bold">EN</span>`;
+                langOptionBtn.innerHTML = `${albanianFlagSVG}<span class="font-bold">AL</span>`;
+                langOptionBtn.onclick = () => changeLanguage('sq');
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuToggle = document.getElementById('menu-toggle'); const mobileMenu = document.getElementById('mobile-menu'); menuToggle.addEventListener('click', () => mobileMenu.classList.toggle('hidden')); document.querySelectorAll('#mobile-menu a').forEach(link => link.addEventListener('click', () => mobileMenu.classList.add('hidden')));
+
+            const langToggleBtn = document.getElementById('language-toggle-btn'); const langOptions = document.getElementById('language-options');
+            const socialToggleBtn = document.getElementById('social-toggle'); const socialOptions = document.getElementById('social-options');
+            
+            langToggleBtn.addEventListener('click', e => { e.stopPropagation(); langOptions.classList.toggle('hidden'); socialOptions.classList.add('hidden'); });
+            socialToggleBtn.addEventListener('click', e => { e.stopPropagation(); socialOptions.classList.toggle('hidden'); langOptions.classList.add('hidden'); });
+            window.addEventListener('click', () => { langOptions.classList.add('hidden'); socialOptions.classList.add('hidden'); });
+
+            function initSlider(sliderId) {
+                const slider = document.getElementById(sliderId); if (!slider) return;
+                const container = slider.parentElement; const afterImage = container.querySelector('.after-image-wrapper'); let isDragging = false;
+                
+                const startDrag = e => { isDragging = true; e.preventDefault(); };
+                const stopDrag = () => isDragging = false;
+                const onDrag = e => { if (!isDragging) return; const rect = container.getBoundingClientRect(); let x = (e.clientX || e.touches[0].clientX) - rect.left; if (x < 0) x = 0; if (x > rect.width) x = rect.width; let percent = (x / rect.width) * 100; slider.style.left = `${percent}%`; afterImage.style.clipPath = `inset(0 0 0 ${percent}%)`; };
+                
+                slider.addEventListener('mousedown', startDrag); slider.addEventListener('touchstart', startDrag);
+                window.addEventListener('mouseup', stopDrag); window.addEventListener('touchend', stopDrag);
+                window.addEventListener('mousemove', onDrag); window.addEventListener('touchmove', onDrag);
+            }
+            initSlider('slider1'); initSlider('slider2');
+            changeLanguage('sq'); // Set initial language
+        });
+    </script>
+</body>
+</html>
